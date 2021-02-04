@@ -1,16 +1,11 @@
-board = [
- "**** ****",
- "***1 ****",
- "**  3****",
- "* 4 1****",
- "     9 5 ",
- " 6  83  *",
- "3   1  **",
- "  8  2***",
- "  2  ****"
-]
+'''
+Module for analising the status of a board
+'''
 
 def check_horizontal(board):
+    '''
+    Check if every row doesn't have any duplicates and numbers not in range (1, 9)
+    '''
 
     for row in board:
         row = row.replace('*', '')
@@ -20,11 +15,14 @@ def check_horizontal(board):
         for el in row:
             if el > '9' or el < '1':
                 return False
-    
+    s
     return True
 
 
 def check_vertical(board):
+    '''
+    Check if every column doesn't have any duplicates and numbers not in range (1, 9)
+    '''
     columns = []
     for i in range(len(board)):
         column = ''
@@ -36,6 +34,9 @@ def check_vertical(board):
 
     
 def check_color(board):
+    '''
+    Check if every color doesn't have any duplicates and numbers not in range (1, 9)
+    '''
     colors = []
     colorss = []
     columns = []
@@ -78,5 +79,3 @@ def validate_board(board):
     booleans.append(check_color(board))
     
     return all(booleans)
-
-print(validate_board(board))
